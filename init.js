@@ -1,6 +1,6 @@
 import config from './config.json' assert {'type': 'json'}
 import credentialTemplate from './credentialtemplate.json' assert { type: "json" }
-import presentationTemplate from './presentationTemplate.json' assert { type: "json" }
+import presentationTemplate from './presentationtemplate.json' assert { type: "json" }
 import auth from './auth.js'
 
 // override config file with environment variables
