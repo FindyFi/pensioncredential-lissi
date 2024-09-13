@@ -7,7 +7,7 @@ import auth from './auth.js'
 const VALIDITY_MS = 3 * 365 * 24 * 60 * 60 * 1000 // credential validity time in milliseconds
 
 async function getOffer(path) {
-  const { default: credential } = await import('.' + path, { assert: { type: "json" } });
+  const { default: credential } = await import('.' + path, { with: { type: "json" } });
   // console.log(credential)
   const headers = apiHeaders
   const issueUrl =  `${config.api_base}/v1/issuance-sessions`
