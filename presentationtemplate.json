@@ -11,6 +11,9 @@
           },
           {
             "claimName": "typeCode"
+          },
+          {
+            "claimName": "startDate"
           }
         ]
       }
