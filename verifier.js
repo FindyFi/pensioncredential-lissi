@@ -102,7 +102,7 @@ async function showRequest(res) {
       }
       const html = \`<p>Todisteen tarkistuksen tila: <strong>\${status.state}</strong></p>
       <table>
-      <tr><th>Hetu</th><td>\${attributes?.person_identifier_code}</td></tr>
+      <tr><th>Hetu</th><td>\${attributes?.personal_administrative_number}</td></tr>
       <tr><th>Eläke</th><td>\${attributes?.typeCode}</td></tr>
       <tr><th>Alkamispäivä</th><td>\${attributes?.startDate}</td></tr>
       </table>

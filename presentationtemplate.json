@@ -7,7 +7,7 @@
         "allowedIssuers": ["https://findynet.demo.connector.lissi.io"],
         "requiredClaims": [
           {
-            "claimName": "person_identifier_code"
+            "claimName": "personal_administrative_number"
           },
           {
             "claimName": "typeCode"

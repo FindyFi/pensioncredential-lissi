@@ -39,20 +39,20 @@ async function getOffer(path) {
         claimValue: credential.credentialSubject.Pension.typeName
       },
       {
-        claimName: "person_identifier_code",
-        claimValue: credential.credentialSubject.Person.person_identifier_code
+        claimName: "personal_administrative_number",
+        claimValue: credential.credentialSubject.Person.personal_administrative_number
       },
       {
         claimName: "birth_date",
         claimValue: credential.credentialSubject.Person.birth_date
       },
       {
-        claimName: "given_name_national_characters",
-        claimValue: credential.credentialSubject.Person.given_name_national_characters
+        claimName: "given_name",
+        claimValue: credential.credentialSubject.Person.given_name
       },
       {
-        claimName: "family_name_national_characters",
-        claimValue: credential.credentialSubject.Person.family_name_national_characters
+        claimName: "family_name",
+        claimValue: credential.credentialSubject.Person.family_name
       },
     ]
   }

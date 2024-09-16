@@ -88,4 +88,3 @@ async function createVerificationTemplate() {
   const createJson = await createResp.json()
   return createJson  
 }
-  
