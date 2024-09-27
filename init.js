@@ -43,21 +43,23 @@ async function createIssuanceTemplate() {
     for (const tmpl of json.content) {
       // console.log(tmpl)
       if (tmpl.templateName == credentialTemplate.templateName) {
-        const delUrl =  `${config.api_base}/v1/credential-templates/${tmpl.templateId}`
-        await fetch(delUrl, { method: 'DELETE', headers })
+        // const delUrl =  `${config.api_base}/v1/credential-templates/${tmpl.templateId}`
+        // await fetch(delUrl, { method: 'DELETE', headers })
         return tmpl
       }
     }
   }
   const createUrl =  `${config.api_base}/v1/credential-templates`
   const body = JSON.stringify(credentialTemplate)
+  // const body = credentialTemplate
+  // console.log(createUrl, headers, body)
   const createResp = await fetch(createUrl, { method: 'POST', headers, body })
-  const createJson = await createResp.json()
   if (createResp.status != 200) {
-    console.error(createResp.status, createUrl)
+    console.error(createResp.status, createUrl, headers, body)
     console.log(await createResp.text())
     return false
   }
+  const createJson = await createResp.json()
   return createJson  
 }
 
@@ -78,7 +80,7 @@ async function createVerificationTemplate() {
   }
   const createUrl =  `${config.api_base}/v1/presentation-templates`
   const body = JSON.stringify(presentationTemplate)
-  console.log(createUrl, headers, body)
+  // console.log(createUrl, headers, body)
   const createResp = await fetch(createUrl, { method: 'POST', headers, body })
   if (createResp.status != 200) {
     console.error(createResp.status, createUrl)
