@@ -1,10 +1,10 @@
 {
-  "presentationTemplateName": "PensionCredential presentation",
+  "presentationTemplateName": "PensionCredential presentation 2024-09-26 sd-jwt",
   "presentationRequirements": {
     "credentialCriteria": [
       {
-        "requiredType": "PensionCredential",
-        "allowedIssuers": ["https://findynet.demo.connector.lissi.io"],
+        "requiredType": "PensionCredential-2024-09-26",
+        "allowedIssuers": [],
         "requiredClaims": [
           {
             "claimName": "personal_administrative_number"
