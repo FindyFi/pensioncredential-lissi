@@ -9,7 +9,7 @@ const pollingInterval = 3 // seconds
 async function createRequest() {
   const headers = apiHeaders
   const verifyUrl =  `${config.api_base}/v1/presentation-sessions` +
-    `?presentationTemplateId=${templates['verify'].presentationTemplateId}`
+    `?presentationTemplateId=${templates.verify.presentationTemplateId}`
   const resp = await fetch(verifyUrl, { method: 'POST', headers })
   if (resp.status == 401) {
     const text = await resp.text()
