@@ -23,7 +23,7 @@ async function createRequest() {
     console.log(`refreshed auth token: ${apiHeaders.Authorization}`)
     return createRequest() // recursion; possible infinite loop!
   }
-  else if (resp.status != 200) {
+  else if (resp.status != 201) {
     console.error(resp.status, verifyUrl, JSON.stringify({ method: 'POST', headers }, null, 1))
     console.log(await resp.text())
     return false
