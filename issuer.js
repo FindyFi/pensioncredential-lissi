@@ -69,7 +69,7 @@ async function getOffer(path) {
     console.log(`refreshed auth token: ${apiHeaders.Authorization}`)
     return getOffer() // recursion; possible infinite loop!
   }
-  if (resp.status != 200) {
+  if (resp.status != 201) {
     console.log(resp.status, issueUrl, headers, body)
     throw new Error(JSON.stringify(await resp.json(), null, 2))
   }
