@@ -45,7 +45,7 @@ async function showRequest(res) {
   res.end(`<!DOCTYPE html>
 <html lang="en">
  <meta charset="UTF-8">
- <title>Paradym vastaanottaa eläkeläistodisteen</title>
+ <title>Lissi vastaanottaa eläkeläistodisteen</title>
  <style>
    *[lang]:not([lang="en"]) {
    display: none;
