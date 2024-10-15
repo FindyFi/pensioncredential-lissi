@@ -223,6 +223,8 @@ const sendOffer = async function (req, res) {
     <div id="user"><span lang="fi">Kirjaudu</span><span lang="en">Log in</span></div>
     <form id="idSelector">
      <select name="identity">
+     <option value="" lang="fi">Valitse henkilöllisyytesi</option>
+     <option value="" lang="en" selected="selected">Choose your identity</option>
      <option value="pensioncredential.json">Totti Aalto (KAEL)</option>
      <option value="pensioncredential-provisional.json">Edwin Kelimtes (väliaikainen TKEL)</option>
      <option value="pensioncredential-disability.json">Joni Kai Hiltunen (TKEL)</option>
@@ -270,11 +272,20 @@ const sendOffer = async function (req, res) {
      const oldLang = html.lang
      html.lang = lang
      for (let i = 0; i < css.cssRules.length; i++) {
-       const rule = css.cssRules[i]
-       if (rule.selectorText == \`[lang]:not([lang="\${oldLang}"])\`) {
-        css.deleteRule(i)
-        css.insertRule(\`[lang]:not([lang="\${lang}"]) { display: none; }\`, i)
-       }
+      const rule = css.cssRules[i]
+      if (rule.selectorText == \`[lang]:not([lang="\${oldLang}"])\`) {
+       css.deleteRule(i)
+       css.insertRule(\`[lang]:not([lang="\${lang}"]) { display: none; }\`, i)
+      }
+     }
+     const opts = document.querySelectorAll('option[lang]')
+     for (const opt of opts) {
+      if (opt.lang == lang) {
+       opt.selected = true
+      }
+      else {
+       opt.selected = false
+      }
      }
     }
     if (lang == defaultLanguage) {
@@ -294,6 +305,7 @@ const sendOffer = async function (req, res) {
    idS.onchange = async function(e) {
 
     const file = this.value
+    if (!file) return false
     user.textContent = this[this.selectedIndex].textContent
 
     const resp = await fetch(file)
