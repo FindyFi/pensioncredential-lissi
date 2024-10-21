@@ -81,7 +81,13 @@ async function getOffer(path) {
 const sendOffer = async function (req, res) {
   const path = new URL(`http://${config.server_host}${req.url}`).pathname
   console.log(path)
-  if (path.includes('.json')) {
+  if (path == '/.well-known/openid-federation') {
+    res.setHeader("Content-Type", "application/entity-statement+jwt")
+    res.writeHead(200)
+    res.end(config.issuer_entity_configuration)
+    return false
+  }
+  else if (path.includes('.json')) {
     try {
       const offer = await getOffer(path)
       // console.log(offer)
@@ -311,6 +317,8 @@ const sendOffer = async function (req, res) {
     const resp = await fetch(file)
     const offer = await resp.json()
     let qrUrl = offer.credentialOfferDetails.credentialOfferUri
+    // inject OpenID Federation Entity Configuration location
+    qrUrl += \`&openid_federation=\${encodeURIComponent('https://issuer.lissi.pensiondemo.findy.fi')}\`
     console.log(qrUrl)
     const otp = offer.credentialOfferDetails.oneTimePassword
     const canvas = document.getElementById("qrcode")
